@@ -4,6 +4,8 @@ import com.projectmanager.model.Tarefa;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
+import java.time.LocalDate;
+
 @Data
 @AllArgsConstructor
 public class TarefaResponseDTO {
@@ -11,8 +13,8 @@ public class TarefaResponseDTO {
     private String titulo;
     private String descricao;
     private Tarefa.Status status;
-    private String dataCriacao;
-    private String dataConclusao;
+    private LocalDate dataCriacao;
+    private LocalDate dataConclusao;
     private String projeto;
     private String atribuidoA;
 }

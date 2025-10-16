@@ -41,7 +41,7 @@ public class Tarefa {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "usuario_id")
-    private Usuario AtribuidoA;
+    private Usuario atribuidoA;
 
     public enum Status {
         PENDENTE,
