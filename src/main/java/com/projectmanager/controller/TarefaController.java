@@ -3,6 +3,7 @@ package com.projectmanager.controller;
 import com.projectmanager.dto.TarefaRequestDTO;
 import com.projectmanager.dto.TarefaResponseDTO;
 import com.projectmanager.service.TarefaService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -17,7 +18,7 @@ public class TarefaController {
     private final TarefaService tarefaService;
 
     @PostMapping
-    public ResponseEntity<TarefaResponseDTO> criarTarefa(@RequestBody TarefaRequestDTO dto) {
+    public ResponseEntity<TarefaResponseDTO> criarTarefa(@RequestBody @Valid TarefaRequestDTO dto) {
         return ResponseEntity.ok(tarefaService.criarTarefa(dto));
     }
 
@@ -32,7 +33,7 @@ public class TarefaController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<TarefaResponseDTO> atualizarTarefa(@PathVariable Long id, @RequestBody TarefaRequestDTO dto) {
+    public ResponseEntity<TarefaResponseDTO> atualizarTarefa(@PathVariable Long id, @RequestBody @Valid TarefaRequestDTO dto) {
         return ResponseEntity.ok(tarefaService.atualizarTarefa(id, dto));
     }
 

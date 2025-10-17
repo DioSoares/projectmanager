@@ -2,8 +2,8 @@ package com.projectmanager.controller;
 
 import com.projectmanager.dto.ProjetoRequestDTO;
 import com.projectmanager.dto.ProjetoResponseDTO;
-import com.projectmanager.model.Projeto;
 import com.projectmanager.service.ProjetoService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -18,7 +18,7 @@ public class ProjetoController {
     private final ProjetoService projetoService;
 
     @PostMapping
-    public ResponseEntity<ProjetoResponseDTO> criarProjeto(@RequestBody ProjetoRequestDTO dto) {
+    public ResponseEntity<ProjetoResponseDTO> criarProjeto(@RequestBody @Valid ProjetoRequestDTO dto) {
         return ResponseEntity.ok(projetoService.criarProjeto(dto));
     }
 
@@ -33,7 +33,7 @@ public class ProjetoController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<ProjetoResponseDTO> atualizarProjeto(@PathVariable Long id, @RequestBody ProjetoRequestDTO dto) {
+    public ResponseEntity<ProjetoResponseDTO> atualizarProjeto(@PathVariable Long id, @RequestBody @Valid ProjetoRequestDTO dto) {
         return ResponseEntity.ok(projetoService.atualizarProjeto(id, dto));
     }
 
